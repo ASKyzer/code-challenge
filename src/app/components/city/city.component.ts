@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 	styleUrls: [ './city.component.scss' ]
 })
 export class CityComponent implements OnInit {
-	id: Any;
+	id: any;
 	city: City[];
 
 	constructor(private route: ActivatedRoute, private apiService: ApiService) {}

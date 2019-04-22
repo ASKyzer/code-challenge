@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -14,9 +15,9 @@ import { FormComponent } from './components/form/form.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditComponent } from './components/edit/edit.component';
 import { NewCityComponent } from './components/new-city/new-city.component';
+import { CityComponent } from './components/city/city.component';
 
 import { ApiService } from './services/api.service';
-import { CityComponent } from './components/city/city.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -30,7 +31,14 @@ import { CityComponent } from './components/city/city.component';
 		NewCityComponent,
 		CityComponent
 	],
-	imports: [ BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, HttpClientModule ],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MaterialModule,
+		HttpClientModule,
+		ReactiveFormsModule
+	],
 	providers: [ ApiService ],
 	bootstrap: [ AppComponent ]
 })

@@ -1,8 +1,8 @@
 export interface City {
-	id: Any;
-	title: String;
-	content: String;
-	lat: String;
-	long: String;
-	image_url: String;
+	id: any;
+	title: string;
+	content: string;
+	lat: string;
+	long: string;
+	image_url: string;
 }
