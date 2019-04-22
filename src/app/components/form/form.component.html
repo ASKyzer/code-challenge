@@ -1,3 +1,38 @@
-<p>
-  form works!
-</p>
+<div class="container">
+  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter City" formControlName="title" />
+
+    </mat-form-field>
+    <p>
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Enter City Description" formControlName="content"></textarea>
+      </mat-form-field>
+    </p>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Latitude" formControlName="lat">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Longitude" formControlName="long">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Image Url" formControlName="image_url">
+    </mat-form-field>
+
+    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light">
+      Submit<i class="material-icons right">send</i>
+    </button>
+    <button (click)="onCancelClick(); $event.preventDefault()" class="btn waves-effect waves-light red" color="accent">
+      Cancel<i class="material-icons right">cancel</i>
+    </button>
+  </form>
+</div>

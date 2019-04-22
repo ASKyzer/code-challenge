@@ -1,3 +1,16 @@
-<p>
-  card works!
-</p>
+    <mat-card class="city-card">
+      <mat-card-header>
+        <div mat-card-avatar class="city-header-image"></div>
+        <mat-card-title>{{ city.title }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{city.image_url}} alt="{{ city.title }}">
+      <mat-card-content>
+        <p>{{ city.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a [routerLink]="['/edit', city.id]">
+          <button color="primary" mat-button>EDIT</button>
+        </a>
+        <button (click)="onDeleteClick(city.id)" mat-button color="warn">DELETE</button>
+      </mat-card-actions>
+    </mat-card>
