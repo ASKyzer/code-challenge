@@ -10,7 +10,7 @@ import { City } from '../../models/city.model';
 export class TableComponent implements OnInit {
 	@Input('cities') cities: City[];
 
-	displayedColumns = [ 'city', 'content', 'latitude', 'longitude' ];
+	displayedColumns = [ 'city', 'description', 'view' ];
 
 	constructor() {}
 
