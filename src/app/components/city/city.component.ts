@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 	styleUrls: [ './city.component.scss' ]
 })
 export class CityComponent implements OnInit {
-	id: string;
+	id: Any;
 	city: City[];
 
 	constructor(private route: ActivatedRoute, private apiService: ApiService) {}
@@ -17,7 +17,6 @@ export class CityComponent implements OnInit {
 	ngOnInit() {
 		this.route.paramMap.subscribe((params) => {
 			this.id = params.get('id');
-			console.log(this.id);
 			return this.apiService.getOne(this.id).subscribe((city) => (this.city = city));
 		});
 	}
