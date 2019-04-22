@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { City } from '../models/city';
+import { City } from '../models/city.model';
 @Injectable({
 	providedIn: 'root'
 })
