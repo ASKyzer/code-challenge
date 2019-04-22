@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
-import { City } from '../models/city';
+import { City } from '../../models/city.model';
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
