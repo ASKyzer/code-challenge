@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Fabulous Cities</span>
+    <span class="menu-spacer"></span>
+    <mat-icon  [matMenuTriggerFor]="menu" class="menu-icon">menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <a routerLink="/" mat-menu-item><button mat-menu-item>Home</button></a>
+      <a routerLink="/new" mat-menu-item><button mat-menu-item>Add New City</button></a>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
