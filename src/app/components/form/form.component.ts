@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
 	@Input('city') city: any;
 
 	public cityForm: FormGroup;
-
+	errorMessage = 'This field is required';
 	// Form State
 	loading = false;
 	success = false;
@@ -28,14 +28,22 @@ export class FormComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.cityForm = this.fb.group({
-			title: [ '', Validators.required ],
-			content: [ '', Validators.required ],
-			lat: '',
-			long: '',
-			image_url: ''
-		});
+		this.createForm();
+		this.getRouteParam();
+	}
 
+	createForm() {
+		this.cityForm = new FormGroup({
+			title: new FormControl('', Validators.required),
+			content: new FormControl('', Validators.required),
+			lat: new FormControl(),
+			long: new FormControl(),
+			image_url: new FormControl()
+		});
+		console.log(this.cityForm);
+	}
+
+	getRouteParam() {
 		this.route.paramMap.subscribe((param) => {
 			const cityID = +param.get('id');
 			if (cityID) {

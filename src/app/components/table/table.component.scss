@@ -1,5 +1,5 @@
 .cities-container {
-  height: 400px;
+  height: auto;
   overflow: auto;
 }
 
@@ -8,5 +8,9 @@ table {
 }
 
 .cities-container table td {
-  padding: 5px 10px
+  padding: 1rem 1rem
+}
+
+.table__header {
+  background: pink;
 }
