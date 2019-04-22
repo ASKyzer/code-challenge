@@ -1,17 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { City } from '../../models/city.model';
 import { ApiService } from '../../services/api.service';
+import { CityComponent } from '../city/city.component';
 @Component({
 	selector: 'app-form',
 	templateUrl: './form.component.html',
 	styleUrls: [ './form.component.scss' ]
 })
 export class FormComponent implements OnInit {
-	@Input('city') city: City[];
+	@Input('city') city: any;
 
 	public cityForm: FormGroup;
 
@@ -21,18 +22,11 @@ export class FormComponent implements OnInit {
 
 	constructor(
 		private fb: FormBuilder,
+		private router: Router,
 		private route: ActivatedRoute,
 		private apiService: ApiService,
 		private loaction: Location
 	) {}
-
-	// createPost(post) {
-	// 	this.title = post.title;
-	// 	this.content = post.content;
-	// 	this.lat = post.lat;
-	// 	this.long = post.long;
-	// 	this.image_url = post.image_url;
-	// }
 
 	ngOnInit() {
 		this.cityForm = new FormGroup({
@@ -47,6 +41,15 @@ export class FormComponent implements OnInit {
 			const cityID = +param.get('id');
 			if (cityID) {
 				this.getCity(cityID);
+			} else {
+				this.city = {
+					id: null,
+					title: [ null, Validators.required ],
+					content: [ null, Validators.required ],
+					lat: null,
+					long: null,
+					image_url: null
+				};
 			}
 		});
 	}
@@ -55,7 +58,7 @@ export class FormComponent implements OnInit {
 		this.apiService.getOne(id).subscribe((city) => this.editCity(city)), (err: any) => console.log(err);
 	}
 
-	editCity(city: City) {
+	editCity(city) {
 		const { title, content, lat, long, image_url } = city;
 		this.cityForm.patchValue({
 			title: title,
@@ -66,8 +69,23 @@ export class FormComponent implements OnInit {
 		});
 	}
 
-	submitHandler() {
-		console.log(this.cityForm.value);
+	submitHandler(): void {
+		this.mapToCityModel();
+		console.log(this.cityForm);
+		if (this.city.id) {
+			this.apiService.updateCity(this.city).subscribe(() => this.router.navigate([ '' ])),
+				(err) => console.log(err);
+		} else {
+			this.apiService.addCity(this.city).subscribe(() => this.router.navigate([ '' ])), (err) => console.log(err);
+		}
+	}
+
+	mapToCityModel() {
+		this.city.title = this.cityForm.value.title;
+		this.city.content = this.cityForm.value.content;
+		this.city.lat = this.cityForm.value.lat;
+		this.city.long = this.cityForm.value.long;
+		this.city.image_url = this.cityForm.value.image_url;
 	}
 
 	onCancelClick() {
