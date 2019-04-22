@@ -28,8 +28,11 @@
       <input matInput placeholder="Enter Image Url" formControlName="image_url">
     </mat-form-field>
 
-    <button mat-raised-button [disabled]="myForm.invalid" color="primary">Submit</button>
-    <button mat-raised-button color="accent">Cancel</button>
+    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light">
+      Submit<i class="material-icons right">send</i>
+    </button>
+    <button (click)="onCancelClick(); $event.preventDefault()" class="btn waves-effect waves-light red" color="accent">
+      Cancel<i class="material-icons right">cancel</i>
+    </button>
   </form>
-
 </div>

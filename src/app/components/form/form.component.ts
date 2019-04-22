@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { City } from '../../models/city.model';
 import { ApiService } from '../../services/api.service';
-import { Observable } from 'rxjs/Observable';
 @Component({
 	selector: 'app-form',
 	templateUrl: './form.component.html',
@@ -19,7 +19,12 @@ export class FormComponent implements OnInit {
 	loading = false;
 	success = false;
 
-	constructor(private fb: FormBuilder, private route: ActivatedRoute, private apiService: ApiService) {}
+	constructor(
+		private fb: FormBuilder,
+		private route: ActivatedRoute,
+		private apiService: ApiService,
+		private loaction: Location
+	) {}
 
 	// createPost(post) {
 	// 	this.title = post.title;
@@ -30,8 +35,6 @@ export class FormComponent implements OnInit {
 	// }
 
 	ngOnInit() {
-		console.log(this.city);
-
 		this.cityForm = new FormGroup({
 			title: new FormControl(),
 			content: new FormControl(),
@@ -49,7 +52,6 @@ export class FormComponent implements OnInit {
 	}
 
 	getCity(id) {
-		console.log(id);
 		this.apiService.getOne(id).subscribe((city) => this.editCity(city)), (err: any) => console.log(err);
 	}
 
@@ -66,5 +68,9 @@ export class FormComponent implements OnInit {
 
 	submitHandler() {
 		console.log(this.cityForm.value);
+	}
+
+	onCancelClick() {
+		this.loaction.back();
 	}
 }
