@@ -1,5 +1,5 @@
 <div class="container form-container">
-  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()">
+  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()" class="form">
     <mat-form-field class="form-full-width">
       <input matInput placeholder="Enter City" [formControl]="title" formControlName="title" required />
       <mat-error *ngIf="cityForm.controls['title'].invalid && cityForm.controls['title'].touched">
