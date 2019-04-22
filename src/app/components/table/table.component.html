@@ -1,3 +1,31 @@
-<p>
-  table works!
-</p>
+<div class="cities-container mat-elevation-z8">
+  <table mat-table [dataSource]="cities">
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let city">{{city.title}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="content">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let city"> {{city.content}} </td>
+    </ng-container>
+
+    <!-- Edit Button Column -->
+    <ng-container matColumnDef="latitude">
+      <th mat-header-cell *matHeaderCellDef> Latitude </th>
+      <td (click)="onEditClick" mat-cell *matCellDef="let city"> {{city.lat}} </td>
+    </ng-container>
+
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="longitude">
+      <th mat-header-cell *matHeaderCellDef> Longitued </th>
+      <td (click)="onDeleteClick" mat-cell *matCellDef="let city"> {{city.long}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
