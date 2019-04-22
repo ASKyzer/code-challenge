@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 
@@ -16,12 +16,22 @@ import { EditComponent } from './components/edit/edit.component';
 import { NewCityComponent } from './components/new-city/new-city.component';
 
 import { ApiService } from './services/api.service';
-import { CityComponent } from './components/city/city.component'
+import { CityComponent } from './components/city/city.component';
 @NgModule({
-	declarations: [ AppComponent, ToolbarComponent, TableComponent, CardComponent, MapComponent, FormComponent, HomeComponent, EditComponent, NewCityComponent, CityComponent ],
-	imports: [ BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule ],
+	declarations: [
+		AppComponent,
+		ToolbarComponent,
+		TableComponent,
+		CardComponent,
+		MapComponent,
+		FormComponent,
+		HomeComponent,
+		EditComponent,
+		NewCityComponent,
+		CityComponent
+	],
+	imports: [ BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, HttpClientModule ],
 	providers: [ ApiService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
-
