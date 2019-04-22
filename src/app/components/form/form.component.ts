@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 
 import { City } from '../../models/city.model';
 import { ApiService } from '../../services/api.service';
-import { CityComponent } from '../city/city.component';
 @Component({
 	selector: 'app-form',
 	templateUrl: './form.component.html',
@@ -29,12 +28,12 @@ export class FormComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.cityForm = new FormGroup({
-			title: new FormControl(),
-			content: new FormControl(),
-			lat: new FormControl(),
-			long: new FormControl(),
-			image_url: new FormControl()
+		this.cityForm = this.fb.group({
+			title: [ '', Validators.required ],
+			content: [ '', Validators.required ],
+			lat: '',
+			long: '',
+			image_url: ''
 		});
 
 		this.route.paramMap.subscribe((param) => {
