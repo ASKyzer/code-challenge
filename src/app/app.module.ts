@@ -6,12 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { TableComponent } from './componets/table/table.component';
+import { CardComponent } from './components/card/card.component';
+import { MapComponent } from './components/map/map.component';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
-	declarations: [ AppComponent, ToolbarComponent ],
+	declarations: [ AppComponent, ToolbarComponent, TableComponent, CardComponent, MapComponent, FormComponent ],
 	imports: [ BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
+
