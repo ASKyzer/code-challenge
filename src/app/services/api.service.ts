@@ -13,4 +13,8 @@ export class ApiService {
 	getAll() {
 		return this.http.get<City[]>(this.url);
 	}
+
+	getOne(id) {
+		return this.http.get<City[]>(`${this.url}/${id}`);
+	}
 }
