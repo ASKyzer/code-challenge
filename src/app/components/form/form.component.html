@@ -1,5 +1,5 @@
 <div class="container">
-  <form *ngIf="city" [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()">
+  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Enter City" formControlName="title" />
 
