@@ -1,3 +1,8 @@
 <h4>
-  Map Component
+  {{ city.title }}
 </h4>
+<div class="map-container">
+  <agm-map [latitude]="lat" [longitude]="long">
+    <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+  </agm-map>
+</div>
