@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -44,7 +45,9 @@ import { FooterComponent } from './components/footer/footer.component';
 		HttpClientModule,
 		FormsModule,
 		ReactiveFormsModule,
-		
+		AgmCoreModule.forRoot({
+			apiKey: ''
+		})
 	],
 	providers: [ ApiService ],
 	bootstrap: [ AppComponent ]

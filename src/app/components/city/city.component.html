@@ -1,6 +1,5 @@
 <div *ngIf="city; else errorCard" class="container">
   <app-card [city]="city"></app-card>
-  <app-map [city]="city"></app-map>
 </div>
 <ng-template #errorCard>
   <app-server-error></app-server-error>

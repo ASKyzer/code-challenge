@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { City } from '../../models/city.model';
 @Component({
@@ -7,9 +8,12 @@ import { City } from '../../models/city.model';
 	styleUrls: [ './map.component.scss' ]
 })
 export class MapComponent implements OnInit {
-	@Input('city') city: City[];
+	@Input('lat') lat: number;
+	@Input('long') long: number;
 
-	constructor() {}
+	constructor(private http: HttpClient) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		console.log(this.lat, this.long);
+	}
 }
