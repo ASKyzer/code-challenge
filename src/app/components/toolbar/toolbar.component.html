@@ -1,11 +1,22 @@
 <nav>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>Fabulous Cities</span>
+      <span>Amazing Places</span>
       <span class="menu-spacer"></span>
       <ul class="right">
-        <li> <a routerLink="/">Home</a> </li>
-        <li> <a routerLink="/new">Add City</a>
+        <li>
+          <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+            <button mat-mini-fab>
+              <mat-icon aria-label="Example icon-button with a heart icon">home</mat-icon>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/new" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+            <button mat-mini-fab>
+              <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            </button>
+          </a>
         </li>
       </ul>
     </mat-toolbar-row>

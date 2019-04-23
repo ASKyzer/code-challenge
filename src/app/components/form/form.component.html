@@ -1,34 +1,39 @@
-<div class="container">
-  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter City" formControlName="title" />
-
+<div class="form-container">
+  <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()" class="form">
+    <mat-form-field class="form-full-width">
+      <input matInput placeholder="Enter City" [formControl]="title" formControlName="title" required />
+      <mat-error *ngIf="cityForm.controls['title'].invalid && cityForm.controls['title'].touched">
+        {{ errorMessage }}
+      </mat-error>
     </mat-form-field>
-    <p>
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Enter City Description" formControlName="content"></textarea>
-      </mat-form-field>
-    </p>
-    <table class="example-full-width" cellspacing="0">
+
+    <mat-form-field class="form-full-width">
+      <textarea matInput placeholder="Enter City Description" formControlName="content" rows="10"></textarea>
+      <mat-error *ngIf="cityForm.controls['content'].invalid && cityForm.controls['content'].touched">
+        {{ errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <table class="form-full-width" cellspacing="0">
       <tr>
         <td>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="form-full-width">
             <input matInput placeholder="Enter Latitude" formControlName="lat">
           </mat-form-field>
         </td>
         <td>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="form-full-width">
             <input matInput placeholder="Enter Longitude" formControlName="long">
           </mat-form-field>
         </td>
       </tr>
     </table>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="form-full-width">
       <input matInput placeholder="Enter Image Url" formControlName="image_url">
     </mat-form-field>
 
-    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light">
+    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light" color='primary'>
       Submit<i class="material-icons right">send</i>
     </button>
     <button (click)="onCancelClick(); $event.preventDefault()" class="btn waves-effect waves-light red" color="accent">

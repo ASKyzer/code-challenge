@@ -1,0 +1,16 @@
+<div class="center-align">
+  <mat-card class="error-card">
+    <mat-card-header>
+      <div mat-card-avatar class="error-header-image"></div>
+      <mat-card-title>OH NO!</mat-card-title>
+      <mat-card-subtitle>Something went wrong.</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ errorImage }}" alt="Photo of Error 500">
+    <mat-card-content>
+      <h6>{{ errorMessage }}</h6>
+    </mat-card-content>
+    <mat-card-actions>
+      <a href="{{ externalTravelLink }}"><button mat-button color="accent">Travel Photography</button></a>
+    </mat-card-actions>
+  </mat-card>
+</div>

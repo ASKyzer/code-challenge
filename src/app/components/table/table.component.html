@@ -1,6 +1,5 @@
-<div class="cities-container mat-elevation-z8">
-  <table mat-table [dataSource]="cities">
-
+<div class="cities-container">
+  <table *ngIf="cities; else apiError" mat-table [dataSource]="cities">
     <!-- City Column -->
     <ng-container matColumnDef="city">
       <th mat-header-cell *matHeaderCellDef> City </th>
@@ -23,7 +22,10 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr class="table__header" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <ng-template #apiError>
+    <app-server-error></app-server-error>
+  </ng-template>
 </div>

@@ -1,12 +1,17 @@
 .cities-container {
-  height: 400px;
+  height: 100%;
   overflow: auto;
+  box-sizing: border-box;
 }
 
 table {
-  width: 100%;
+  margin: 2rem 0;
 }
 
 .cities-container table td {
-  padding: 5px 10px
+  padding: 1rem 1rem
+}
+
+.table__header {
+  background: pink;
 }
