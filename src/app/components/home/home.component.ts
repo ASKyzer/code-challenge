@@ -9,12 +9,14 @@ import { City } from '../../models/city.model';
 })
 export class HomeComponent implements OnInit {
 	cities: City[];
-	public errorMsg;
+	public errorMsg: string;
 
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		return this.apiService.getAll().subscribe((cities) => (this.cities = cities));
+		return this.apiService
+			.getAll()
+			.subscribe((cities) => (this.cities = cities), (error) => (this.errorMsg = error));
 	}
 
 	onClick(id) {
