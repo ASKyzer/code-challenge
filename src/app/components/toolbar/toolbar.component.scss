@@ -7,7 +7,13 @@
   flex: 1 1 auto;
 }
 
-a {
+a button {
   text-decoration: none;
-  color: white;
+  color: black;
+  background: white;
+}
+
+.active-link button {
+  color: #fff;
+  background: #ff4080;
 }

@@ -19,6 +19,7 @@ import { CityComponent } from './components/city/city.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
 
 import { ApiService } from './services/api.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { ApiService } from './services/api.service';
 		EditComponent,
 		NewCityComponent,
 		CityComponent,
-		ServerErrorComponent
+		ServerErrorComponent,
+		FooterComponent
 	],
 	imports: [
 		BrowserModule,
