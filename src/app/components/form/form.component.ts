@@ -36,9 +36,9 @@ export class FormComponent implements OnInit {
 		this.cityForm = new FormGroup({
 			title: new FormControl('', Validators.required),
 			content: new FormControl('', Validators.required),
-			lat: new FormControl(),
-			long: new FormControl(),
-			image_url: new FormControl()
+			lat: new FormControl(''),
+			long: new FormControl(''),
+			image_url: new FormControl('')
 		});
 		console.log(this.cityForm);
 	}
