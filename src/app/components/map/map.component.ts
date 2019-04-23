@@ -13,5 +13,7 @@ export class MapComponent implements OnInit {
 
 	constructor(private http: HttpClient) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		console.log(this.lat, this.long);
+	}
 }

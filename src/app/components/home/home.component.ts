@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		return this.apiService.getAll().subscribe((cities) => (this.cities = cities));
+		const api = this.apiService;
+		setTimeout(function() {
+			api.getAll().subscribe((cities) => (this.cities = cities));
+		}, 500);
 	}
 
 	onClick(id) {

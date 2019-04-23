@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { City } from '../models/city.model';
 @Injectable({
@@ -10,6 +10,17 @@ export class ApiService {
 	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v1/posts';
 
 	constructor(private http: HttpClient) {}
+
+	// private handleError(errorResponse: HttpErrorResponse) {
+	// 	if (errorResponse.error instanceof ErrorEvent) {
+	// 		console.error('Client Side Error: ', errorResponse.error.message);
+	// 	} else {
+	// 		console.error('Server Side Error: ', errorResponse);
+	// 	}
+	// 	return new ErrorObservable(
+	// 		'There is a problem with our server.  We are working on it. Please try again later.'
+	// 	);
+	// }
 
 	getAll() {
 		return this.http.get<City[]>(this.url);
