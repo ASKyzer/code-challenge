@@ -1,10 +1,11 @@
 .cities-container {
   height: 100%;
   overflow: auto;
+  box-sizing: border-box;
 }
 
 table {
-  width: 100%;
+  margin: 2rem 0;
 }
 
 .cities-container table td {

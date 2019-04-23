@@ -1,6 +1,5 @@
 <div class="cities-container">
   <table *ngIf="cities; else apiError" mat-table [dataSource]="cities">
-
     <!-- City Column -->
     <ng-container matColumnDef="city">
       <th mat-header-cell *matHeaderCellDef> City </th>

@@ -1,4 +1,4 @@
-<div class="container form-container">
+<div class="form-container">
   <form [formGroup]="cityForm" [hidden]='success' (ngSubmit)="submitHandler()" class="form">
     <mat-form-field class="form-full-width">
       <input matInput placeholder="Enter City" [formControl]="title" formControlName="title" required />
@@ -33,7 +33,7 @@
       <input matInput placeholder="Enter Image Url" formControlName="image_url">
     </mat-form-field>
 
-    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light">
+    <button [disabled]="cityForm.invalid" class="btn waves-effect waves-light" color='primary'>
       Submit<i class="material-icons right">send</i>
     </button>
     <button (click)="onCancelClick(); $event.preventDefault()" class="btn waves-effect waves-light red" color="accent">
