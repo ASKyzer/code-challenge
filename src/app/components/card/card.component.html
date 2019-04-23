@@ -13,5 +13,5 @@
         </a>
         <button (click)="onDeleteClick(city.id)" mat-button color="warn">DELETE</button>
       </mat-card-actions>
-      <app-map [lat]="city.lat" [long]="city.long"></app-map>
+      <app-map [title]="city.title" [lat]="city.lat" [long]="city.long"></app-map>
     </mat-card>

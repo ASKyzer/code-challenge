@@ -8,12 +8,16 @@ import { City } from '../../models/city.model';
 	styleUrls: [ './map.component.scss' ]
 })
 export class MapComponent implements OnInit {
+	@Input('title') title: string;
 	@Input('lat') lat: number;
 	@Input('long') long: number;
 
 	constructor(private http: HttpClient) {}
 
 	ngOnInit() {
-		console.log(this.lat, this.long);
+		this.lat = Number(this.lat);
+		this.long = Number(this.long);
+
+		console.log(this.lat, this.long, this.title);
 	}
 }

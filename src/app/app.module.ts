@@ -18,9 +18,13 @@ import { EditComponent } from './components/edit/edit.component';
 import { NewCityComponent } from './components/new-city/new-city.component';
 import { CityComponent } from './components/city/city.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
-
-import { ApiService } from './services/api.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoaderComponent } from './components/loader/loader.component';
+
+import { LoaderService } from './services/loader.service';
+import { ApiService } from './services/api.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
 	declarations: [
@@ -35,7 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
 		NewCityComponent,
 		CityComponent,
 		ServerErrorComponent,
-		FooterComponent
+		FooterComponent,
+		LoaderComponent
 	],
 	imports: [
 		BrowserModule,
@@ -49,7 +54,7 @@ import { FooterComponent } from './components/footer/footer.component';
 			apiKey: ''
 		})
 	],
-	providers: [ ApiService ],
+	providers: [ ApiService, LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true } ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
