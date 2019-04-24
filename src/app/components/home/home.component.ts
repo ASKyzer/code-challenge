@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
 import { City } from '../../models/city.model';
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -11,7 +12,6 @@ export class HomeComponent implements OnInit {
 	cities: City[];
 	errorMsg: string;
 
-	showSpinner: boolean = true;
 
 	constructor(private apiService: ApiService) {}
 
@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
 			.subscribe(
 				(cities) => (this.cities = cities),
 				(error) => (this.errorMsg = error),
-				(this.showSpinner = false)
 			);
 	}
 }

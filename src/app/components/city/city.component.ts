@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { City } from '../../models/city.model';
 import { ApiService } from '../../services/api.service';
+
 @Component({
 	selector: 'app-city',
 	templateUrl: './city.component.html',
@@ -12,7 +13,6 @@ export class CityComponent implements OnInit {
 	id: any;
 	city: City[];
 	public errorMsg: string;
-	public showSpinner: boolean = true;
 
 	constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
@@ -24,7 +24,6 @@ export class CityComponent implements OnInit {
 				.subscribe(
 					(city) => (this.city = city),
 					(error) => (this.errorMsg = error),
-					(this.showSpinner = false)
 				);
 		});
 	}
