@@ -9,7 +9,7 @@
       </mat-card-content>
       <mat-card-actions>
         <a [routerLink]="['/edit', city.id]">
-          <button color="primary" mat-button>EDIT</button>
+          <button color="primary" mat-button>EDIT {{ city.id }}</button>
         </a>
         <button (click)="onDeleteClick(city.id)" mat-button color="warn">DELETE</button>
       </mat-card-actions>
