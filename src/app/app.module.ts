@@ -22,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
 
 import { ApiService } from './services/api.service';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
 	declarations: [
@@ -37,7 +38,8 @@ import { ApiService } from './services/api.service';
 		CityComponent,
 		ServerErrorComponent,
 		FooterComponent,
-		LoaderComponent
+		LoaderComponent,
+		HeroComponent
 	],
 	imports: [
 		BrowserModule,
