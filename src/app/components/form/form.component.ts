@@ -15,9 +15,7 @@ export class FormComponent implements OnInit {
 
 	public cityForm: FormGroup;
 	errorMessage = 'This field is required';
-	// Form State
-	loading = false;
-	success = false;
+	
 
 	constructor(
 		private fb: FormBuilder,
@@ -40,12 +38,11 @@ export class FormComponent implements OnInit {
 			long: new FormControl(''),
 			image_url: new FormControl('')
 		});
-		console.log(this.cityForm);
 	}
 
 	getRouteParam() {
 		this.route.paramMap.subscribe((param) => {
-			const cityID = +param.get('id');
+			 this.cityID = +param.get('id');
 			if (cityID) {
 				this.getCity(cityID);
 			} else {
