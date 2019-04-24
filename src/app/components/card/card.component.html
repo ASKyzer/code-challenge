@@ -1,4 +1,5 @@
-    <mat-card class="city-card">
+    <div *ngIf="!errorMsg; else errorCard" class="container">
+      <mat-card class="city-card">
       <mat-card-header>
         <div mat-card-avatar class="city-header-image"></div>
         <mat-card-title>{{ city.title }}</mat-card-title>
@@ -8,10 +9,15 @@
         <p>{{ city.content }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <a [routerLink]="['/edit', city.id]">
-          <button color="primary" mat-button>EDIT {{ city.id }}</button>
+        <a [routerLink]="['/edit', id]">
+          <button color="primary" mat-button>EDIT</button>
         </a>
         <button (click)="onDeleteClick(city.id)" mat-button color="warn">DELETE</button>
       </mat-card-actions>
       <app-map [title]="city.title" [lat]="city.lat" [long]="city.long"></app-map>
     </mat-card>
+  </div>
+  <ng-template #errorCard>
+    <app-server-error [errorMsg]="errorMsg"></app-server-error>
+  </ng-template>
+    

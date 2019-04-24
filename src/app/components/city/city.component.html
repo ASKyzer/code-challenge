@@ -1,8 +1,3 @@
 <div class="container">
-  <div *ngIf="!errorMsg; else errorCard" class="container">
-    <app-card [city]="city"></app-card>
-  </div>
-  <ng-template #errorCard>
-    <app-server-error [errorMsg]="errorMsg"></app-server-error>
-  </ng-template>
+    <app-card></app-card>
 </div>
