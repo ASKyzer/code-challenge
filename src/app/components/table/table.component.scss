@@ -2,14 +2,22 @@
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
+
+  & table td {
+    padding: 1rem 1rem;
+  }
 }
 
 table {
   margin: 2rem 0;
 }
 
-.cities-container table td {
-  padding: 1rem 1rem
+.cities__header {
+  color: #ff407f;
+  margin: 0;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  text-decoration: underline;
 }
 
 .table__header {

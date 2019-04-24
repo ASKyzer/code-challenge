@@ -1,4 +1,5 @@
 <div class="cities-container">
+  <h4 class="cities__header">Oh the places you'll go.</h4>
   <table *ngIf="!errorMsg; else apiError" mat-table [dataSource]="cities">
     <!-- City Column -->
     <ng-container matColumnDef="city">

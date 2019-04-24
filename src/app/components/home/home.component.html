@@ -1,2 +1,5 @@
-<app-table [cities]="cities" [errorMsg]="errorMsg" [showSpinner]="showSpinner"></app-table>
-<app-loader *ngIf="showSpinner"></app-loader>
+<app-hero></app-hero>
+<div class="container">
+  <app-table [cities]="cities" [errorMsg]="errorMsg" [showSpinner]="showSpinner"></app-table>
+  <app-loader *ngIf="showSpinner"></app-loader>
+</div>
