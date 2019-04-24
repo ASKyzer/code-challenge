@@ -231,7 +231,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "    <mat-card class=\"city-card\">\n      <mat-card-header>\n        <div mat-card-avatar class=\"city-header-image\"></div>\n        <mat-card-title>{{ city.title }}</mat-card-title>\n      </mat-card-header>\n      <img mat-card-image src={{city.image_url}} alt=\"{{ city.title }}\">\n      <mat-card-content>\n        <p>{{ city.content }}</p>\n      </mat-card-content>\n      <mat-card-actions>\n        <a [routerLink]=\"['/edit', city.id]\">\n          <button color=\"primary\" mat-button>EDIT</button>\n        </a>\n        <button (click)=\"onDeleteClick(city.id)\" mat-button color=\"warn\">DELETE</button>\n      </mat-card-actions>\n      <app-map [title]=\"city.title\" [lat]=\"city.lat\" [long]=\"city.long\"></app-map>\n    </mat-card>\n"
+module.exports = "    <mat-card class=\"city-card\">\n      <mat-card-header>\n        <div mat-card-avatar class=\"city-header-image\"></div>\n        <mat-card-title>{{ city.title }}</mat-card-title>\n      </mat-card-header>\n      <img mat-card-image src={{city.image_url}} alt=\"{{ city.title }}\">\n      <mat-card-content>\n        <p>{{ city.content }}</p>\n      </mat-card-content>\n      <mat-card-actions>\n        <a [routerLink]=\"['/edit', city.id]\">\n          <button color=\"primary\" mat-button>EDIT {{ city.id }}</button>\n        </a>\n        <button (click)=\"onDeleteClick(city.id)\" mat-button color=\"warn\">DELETE</button>\n      </mat-card-actions>\n      <app-map [title]=\"city.title\" [lat]=\"city.lat\" [long]=\"city.long\"></app-map>\n    </mat-card>\n"
 
 /***/ }),
 
