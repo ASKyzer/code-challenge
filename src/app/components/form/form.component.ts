@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
 
 	getRouteParam() {
 		this.route.paramMap.subscribe((param) => {
-			 this.cityID = +param.get('id');
+			 const cityID = +param.get('id');
 			if (cityID) {
 				this.getCity(cityID);
 			} else {
