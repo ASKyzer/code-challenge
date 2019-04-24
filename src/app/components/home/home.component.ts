@@ -9,17 +9,19 @@ import { City } from '../../models/city.model';
 })
 export class HomeComponent implements OnInit {
 	cities: City[];
-	public errorMsg: string;
+	errorMsg: string;
+
+	showSpinner: boolean = true;
 
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		return this.apiService
-			.getAll()
-			.subscribe((cities) => (this.cities = cities), (error) => (this.errorMsg = error));
+		return this.apiService.getAll().subscribe((cities) => {
+			(this.cities = cities), (this.showSpinner = false), (error) => (this.errorMsg = error);
+		});
 	}
 
 	onClick(id) {
-		return this.apiService.getOne(id).subscribe((city) => console.log(city));
+		return this.apiService.getOne(id).subscribe((city) => console.log(city), (error) => (this.errorMsg = error));
 	}
 }

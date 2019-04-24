@@ -11,16 +11,16 @@ import { ApiService } from '../../services/api.service';
 export class EditComponent implements OnInit {
 	id: any;
 	city: City[];
+	public errorMsg: string;
 
 	constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
 	ngOnInit() {
 		this.route.paramMap.subscribe((params) => {
 			this.id = params.get('id');
-			return this.apiService.getOne(this.id).subscribe((city) => {
-				this.city = city;
-				console.log(this.city);
-			});
+			return this.apiService
+				.getOne(this.id)
+				.subscribe((city) => (this.city = city), (error) => (this.errorMsg = error));
 		});
 	}
 }

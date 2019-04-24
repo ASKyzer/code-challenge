@@ -1,5 +1,2 @@
-<!-- <app-loader></app-loader> -->
-<h5>
-  {{ errorMsg }}
-</h5>
-<app-table [cities]="cities" [errorMsg]="errorMsg"></app-table>
+<app-table [cities]="cities" [errorMsg]="errorMsg" [showSpinner]="showSpinner"></app-table>
+<app-loader *ngIf="showSpinner"></app-loader>
