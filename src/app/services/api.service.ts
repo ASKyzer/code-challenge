@@ -22,7 +22,7 @@ export class ApiService {
 	}
 
 	getOne(id: number) {
-		return this.http.get<City[]>(`${this.url}/${id}`);
+		return this.http.get<City[]>(`${this.url}/${id}`).catch(this.handleError);
 	}
 
 	updateCity(city: City) {
