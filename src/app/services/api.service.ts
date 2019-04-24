@@ -26,7 +26,6 @@ export class ApiService {
 	}
 
 	updateCity(city: City) {
-		console.log(city);
 		return this.http.put(`${this.url}/${city.id}`, city, {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json'
@@ -35,7 +34,6 @@ export class ApiService {
 	}
 
 	addCity(city: City) {
-		console.log(city);
 		return this.http.post(this.url, city, {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json'

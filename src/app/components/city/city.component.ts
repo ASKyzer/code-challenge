@@ -12,6 +12,7 @@ export class CityComponent implements OnInit {
 	id: any;
 	city: City[];
 	public errorMsg: string;
+	public showSpinner: boolean = true;
 
 	constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
@@ -20,7 +21,11 @@ export class CityComponent implements OnInit {
 			this.id = params.get('id');
 			return this.apiService
 				.getOne(this.id)
-				.subscribe((city) => (this.city = city), (error) => (this.errorMsg = error));
+				.subscribe(
+					(city) => (this.city = city),
+					(error) => (this.errorMsg = error),
+					(this.showSpinner = false)
+				);
 		});
 	}
 }

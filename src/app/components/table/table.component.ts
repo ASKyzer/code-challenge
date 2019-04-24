@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
 
 import { City } from '../../models/city.model';
 @Component({
@@ -16,10 +15,5 @@ export class TableComponent implements OnInit {
 
 	constructor() {}
 
-	ngOnInit() {
-		console.log(this.errorMsg);
-		if (this.errorMsg) {
-			this.showSpinner = false;
-		}
-	}
+	ngOnInit() {}
 }
