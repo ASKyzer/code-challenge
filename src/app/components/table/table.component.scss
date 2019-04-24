@@ -1,3 +1,5 @@
+@import '../../shared/sass/variables';
+
 .cities-container {
   height: 100%;
   overflow: auto;
@@ -6,6 +8,9 @@
   & table td {
     padding: 1rem 1rem;
   }
+  & th {
+    color: $color-white;
+  } 
 }
 
 table {
@@ -13,7 +18,7 @@ table {
 }
 
 .cities__header {
-  color: #ff407f;
+  color:$color-accent;
   margin: 0;
   margin-top: 2rem;
   margin-bottom: .5rem;
@@ -21,9 +26,11 @@ table {
 }
 
 .table__header {
-  background: pink;
+  background: $color-primary;
 }
 
 .place-icon {
-  color: #3F50B5;
+  color:$color-primary;
 }
+
+

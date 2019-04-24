@@ -1,15 +1,17 @@
+@import '../../shared/sass/variables';
+
 .form-container {
   background: white;
   display: flex;
   flex-direction: column;
   padding: 30px 50px;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 20px #ccc;
+  border: 1px solid $color-medium-gray;
+  box-shadow: 2px 2px 20px $color-medium-gray;
   margin-bottom: 50px;
-}
 
-.form-container>* {
-  width: 100%;
+    &>*{ 
+      width: 100%;
+    }
 }
 
 .form-full-width,

@@ -1,8 +1,10 @@
+@import '../../shared/sass/variables';
+
 agm-map {
   height: 100%;
 }
 
 .map-container {
-  border: 1px solid black;
+  border: 1px solid $color-black;
   height: 400px;
 }

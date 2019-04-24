@@ -1,12 +1,16 @@
+@import '../../shared/sass/variables';
+
 footer {
-  background: #FF4080;
+  background: $color-accent;
   padding: 0;
   margin-top: auto;
   height: 8rem;
+
+    & .copyright {
+    color: $color-white;
+    text-align: center;
+    line-height: 8rem;
+  }
 }
 
-.copyright {
-  color: #fff;
-  text-align: center;
-  line-height: 8rem;
-}
+
