@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
 
 import { City } from '../../models/city.model';
 @Component({
@@ -10,6 +9,7 @@ import { City } from '../../models/city.model';
 export class TableComponent implements OnInit {
 	@Input('cities') cities: City[];
 	@Input('errorMsg') errorMsg: string;
+	@Input('showSpinner') showSpinner: boolean;
 
 	displayedColumns = [ 'city', 'description', 'view' ];
 

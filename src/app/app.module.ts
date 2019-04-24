@@ -21,10 +21,7 @@ import { ServerErrorComponent } from './components/server-error/server-error.com
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
 
-import { LoaderService } from './services/loader.service';
 import { ApiService } from './services/api.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
 	declarations: [
@@ -54,7 +51,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 			apiKey: ''
 		})
 	],
-	providers: [ ApiService, LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true } ],
+	providers: [ ApiService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

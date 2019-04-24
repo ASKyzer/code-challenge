@@ -9,7 +9,7 @@ import { City } from '../models/city.model';
 	providedIn: 'root'
 })
 export class ApiService {
-	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v19/posts';
+	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v1/posts';
 
 	constructor(private http: HttpClient) {}
 
@@ -26,7 +26,6 @@ export class ApiService {
 	}
 
 	updateCity(city: City) {
-		console.log(city);
 		return this.http.put(`${this.url}/${city.id}`, city, {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json'
@@ -35,7 +34,6 @@ export class ApiService {
 	}
 
 	addCity(city: City) {
-		console.log(city);
 		return this.http.post(this.url, city, {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json'

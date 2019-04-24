@@ -25,6 +25,7 @@
     <tr class="table__header" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
   <ng-template #apiError>
     <app-server-error [errorMsg]="errorMsg"></app-server-error>
   </ng-template>
