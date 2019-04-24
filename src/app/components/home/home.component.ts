@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		return this.apiService.getAll().subscribe((cities) => {
-			(this.cities = cities), (this.showSpinner = false), (error) => (this.errorMsg = error);
-		});
-	}
-
-	onClick(id) {
-		return this.apiService.getOne(id).subscribe((city) => console.log(city), (error) => (this.errorMsg = error));
+		return this.apiService
+			.getAll()
+			.subscribe(
+				(cities) => (this.cities = cities),
+				(error) => (this.errorMsg = error),
+				(this.showSpinner = false)
+			);
 	}
 }

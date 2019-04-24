@@ -9,7 +9,7 @@ import { City } from '../models/city.model';
 	providedIn: 'root'
 })
 export class ApiService {
-	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v19/posts';
+	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v1/posts';
 
 	constructor(private http: HttpClient) {}
 

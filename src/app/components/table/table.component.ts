@@ -16,5 +16,10 @@ export class TableComponent implements OnInit {
 
 	constructor() {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		console.log(this.errorMsg);
+		if (this.errorMsg) {
+			this.showSpinner = false;
+		}
+	}
 }
