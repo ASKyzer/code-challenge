@@ -9,6 +9,7 @@ import { City } from '../../models/city.model';
 })
 export class TableComponent implements OnInit {
 	@Input('cities') cities: City[];
+	@Input('errorMsg') errorMsg: string;
 
 	displayedColumns = [ 'city', 'description', 'view' ];
 

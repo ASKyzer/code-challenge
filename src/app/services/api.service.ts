@@ -1,33 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { City } from '../models/city.model';
 @Injectable({
 	providedIn: 'root'
 })
 export class ApiService {
-	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v1/posts';
+	url = 'https://wf-challenge-ywlsrfkhim.herokuapp.com/api/v19/posts';
 
 	constructor(private http: HttpClient) {}
 
-	// private handleError(errorResponse: HttpErrorResponse) {
-	// 	if (errorResponse.error instanceof ErrorEvent) {
-	// 		console.error('Client Side Error: ', errorResponse.error.message);
-	// 	} else {
-	// 		console.error('Server Side Error: ', errorResponse);
-	// 	}
-	// 	return new ErrorObservable(
-	// 		'There is a problem with our server.  We are working on it. Please try again later.'
-	// 	);
-	// }
+	private handleError(error: HttpErrorResponse) {
+		return Observable.throw(error.message || 'Server Error');
+	}
 
 	getAll() {
-		return this.http.get<City[]>(this.url);
+		return this.http.get<City[]>(this.url).catch(this.handleError);
 	}
 
 	getOne(id: number) {
-		return this.http.get<City[]>(`${this.url}/${id}`);
+		return this.http.get<City[]>(`${this.url}/${id}`).catch(this.handleError);
 	}
 
 	updateCity(city: City) {
