@@ -8,14 +8,14 @@ import { ApiService } from '../../services/api.service';
 @Component({
 	selector: 'app-form',
 	templateUrl: './form.component.html',
-	styleUrls: [ './form.component.scss' ]
+	styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
 	@Input('city') city: any;
 
 	public cityForm: FormGroup;
-	errorMessage = 'This field is required';
-	
+	errorMessage = 'This field is required and can only be 300 characters or less';
+
 
 	constructor(
 		private fb: FormBuilder,
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
 		private route: ActivatedRoute,
 		private apiService: ApiService,
 		private loaction: Location
-	) {}
+	) { }
 
 	ngOnInit() {
 		this.createForm();
@@ -33,23 +33,24 @@ export class FormComponent implements OnInit {
 	createForm() {
 		this.cityForm = new FormGroup({
 			title: new FormControl('', Validators.required),
-			content: new FormControl('', Validators.required),
+			content: new FormControl('', [Validators.required, Validators.maxLength(900)]),
 			lat: new FormControl(''),
 			long: new FormControl(''),
 			image_url: new FormControl('')
 		});
+		console.log(this.cityForm)
 	}
 
 	getRouteParam() {
 		this.route.paramMap.subscribe((param) => {
-			 const cityID = +param.get('id');
+			const cityID = +param.get('id');
 			if (cityID) {
 				this.getCity(cityID);
 			} else {
 				this.city = {
 					id: null,
-					title: [ null, Validators.required ],
-					content: [ null, Validators.required ],
+					title: [null, Validators.required],
+					content: [null, Validators.compose([Validators.required, Validators.maxLength(900)])],
 					lat: null,
 					long: null,
 					image_url: null
@@ -77,10 +78,10 @@ export class FormComponent implements OnInit {
 		this.mapToCityModel();
 		console.log(this.cityForm);
 		if (this.city.id) {
-			this.apiService.updateCity(this.city).subscribe(() => this.router.navigate([ '' ])),
+			this.apiService.updateCity(this.city).subscribe(() => this.router.navigate([''])),
 				(err) => console.log(err);
 		} else {
-			this.apiService.addCity(this.city).subscribe(() => this.router.navigate([ '' ])), (err) => console.log(err);
+			this.apiService.addCity(this.city).subscribe(() => this.router.navigate([''])), (err) => console.log(err);
 		}
 	}
 

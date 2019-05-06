@@ -8,10 +8,14 @@
     </mat-form-field>
 
     <mat-form-field class="form-full-width">
-      <textarea matInput placeholder="Enter City Description" formControlName="content" rows="10"></textarea>
+      <textarea matInput placeholder="Enter City Description" formControlName="content" rows="10" required></textarea>
       <mat-error *ngIf="cityForm.controls['content'].invalid && cityForm.controls['content'].touched">
         {{ errorMessage }}
       </mat-error>
+      <!-- <mat-error
+        *ngIf="cityForm.controls['content'].invalid && cityForm.controls['content'].touched && cityForm.controls['content'].errors.maxlength.actualLength > 300">
+        {{ errorMessageLength }}
+      </mat-error> -->
     </mat-form-field>
     <div class="row">
       <div class="col s12 m6">
