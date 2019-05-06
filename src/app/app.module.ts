@@ -23,6 +23,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 
 import { ApiService } from './services/api.service';
 import { HeroComponent } from './components/hero/hero.component';
+import { EditErrorComponent } from './components/edit-error/edit-error.component';
 
 @NgModule({
 	declarations: [
@@ -39,7 +40,8 @@ import { HeroComponent } from './components/hero/hero.component';
 		ServerErrorComponent,
 		FooterComponent,
 		LoaderComponent,
-		HeroComponent
+		HeroComponent,
+		EditErrorComponent
 	],
 	imports: [
 		BrowserModule,

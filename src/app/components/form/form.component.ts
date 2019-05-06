@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
 	@Input('city') city: any;
 
 	public cityForm: FormGroup;
-	errorMessage = 'This field is required and can only be 300 characters or less';
+	errorMessage = 'This field is required and can only be 900 characters or less';
 
 
 	constructor(

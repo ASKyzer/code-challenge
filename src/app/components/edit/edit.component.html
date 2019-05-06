@@ -1,4 +1,8 @@
 <div class="container">
-  <h4 class="edit-city__header">Editing {{ city.title }}</h4>
-  <app-form [city]="city"></app-form>
+  <h4 *ngIf="city" class="edit-city__header">Editing {{ city.title }}</h4>
+  <app-form *ngIf="city; else editError" [city]="city"></app-form>
+  <ng-template #editError>
+    <app-edit-error></app-edit-error>
+  </ng-template>
+    
 </div>
