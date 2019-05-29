@@ -1,3 +1,3 @@
-# New Feature 1
+# New Feature 2
 
-### Created a feature-1 branch to test Git Flow.
+### Created a feature-2 branch to test Git Flow.
